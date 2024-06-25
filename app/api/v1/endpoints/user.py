@@ -10,8 +10,10 @@ router = APIRouter(prefix="/users", tags=["users"])
 
 
 @router.get("/")
-def read_users():
-    return {"message": "Hello World"}
+def read_users(
+    sql: Session = Depends(get_sql),
+):
+    return crud_user.get_users(sql=sql)
 
 
 @router.post("/")

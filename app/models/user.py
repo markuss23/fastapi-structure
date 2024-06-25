@@ -13,4 +13,4 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(length=255), index=True)
     email = Column(String(length=255), unique=True, index=True)
-    orders: _RelationshipDeclared[Any] = relationship("Order", back_populates="user")
+    items = relationship("Order", back_populates="user")

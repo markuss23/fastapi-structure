@@ -13,4 +13,4 @@ class Item(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String(length=255), index=True)
     description = Column(String(length=255), index=True)
-    orders: _RelationshipDeclared[Any] = relationship("Order", back_populates="item")
+    users = relationship("Order", back_populates="item")
